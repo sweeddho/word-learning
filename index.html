@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字詞管理</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>字詞管理系統</h1>
+        
+        <!-- 新增字詞的表單 -->
+        <h2>新增字詞</h2>
+        <input type="text" id="wordInput" placeholder="輸入字詞" required>
+        <select id="partOfSpeechInput">
+            <option value="">選擇詞性</option>
+            <option value="noun">名詞 (noun)</option>
+            <option value="verb">動詞 (verb)</option>
+            <option value="adjective">形容詞 (adjective)</option>
+            <option value="adverb">副詞 (adverb)</option>
+            <option value="phrase">短語 (phrase)</option>
+            <option value="idiom">成語 (idiom)</option>
+            <option value="other">其他 (other)</option>
+        </select>
+        <input type="text" id="definitionInput" placeholder="輸入解釋" required>
+        <button id="submitButton">新增</button>
+        
+        <div id="message"></div>
+
+        <!-- 導航按鈕 -->
+        <h2>操作選單</h2>
+        <button id="editButton">修改字詞</button>
+        <button id="searchButton">搜尋字詞</button>
+        <button id="viewAllButton">查看所有字詞</button>
+        <button id="deleteButton">刪除字詞</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

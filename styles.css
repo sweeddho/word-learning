@@ -1,0 +1,102 @@
+/* 基本樣式設置 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 輸入欄位樣式 */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 按鈕樣式 */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px; /* 增加按鈕之間的垂直空隙 */
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* 訊息顯示樣式 */
+#message,
+#editMessage {
+    margin-top: 10px;
+    color: red; /* 錯誤訊息顏色 */
+}
+.result-count {
+    margin-bottom: 15px; /* 調整底部邊距 */
+}
+.button-container {
+    display: flex; /* 使用彈性盒模型 */
+    justify-content: space-between; /* 按鈕兩端對齊 */
+    margin-top: 10px; /* 增加與上方內容的間距 */
+    margin-bottom: 10px;
+}
+
+.edit-button{
+  /* flex: 1; /* 彈性佔據空間 */
+    margin: 0 5px; /* 增加按鈕之間的間距 */
+    padding: 10px; /* 統一按鈕的內邊距 */
+    border: none; /* 去掉邊框 */
+    border-radius: 4px; /* 統一圓角 */
+    cursor: pointer; /* 鼠標指針樣式 */
+    background-color:#007bff;
+}
+.delete-button {
+    /*flex: 1; /* 彈性佔據空間 */
+    margin: 0 5px; /* 增加按鈕之間的間距 */
+    padding: 10px; /* 統一按鈕的內邊距 */
+    border: none; /* 去掉邊框 */
+    border-radius: 4px; /* 統一圓角 */
+    cursor: pointer; /* 鼠標指針樣式 */
+    background-color:red;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #007bff; /* 藍色 */
+    color: white;
+}
+
+.pagination button:disabled {
+    background-color: #ccc; /* 禁用狀態顏色 */
+    cursor: not-allowed;
+}
