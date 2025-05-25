@@ -1,15 +1,15 @@
 const deleteButton = document.getElementById('deleteButton');
 const deleteMessage = document.getElementById('deleteMessage');
-const words = JSON.parse(localStorage.getItem('words')) || [];
+const words2 = JSON.parse(localStorage.getItem('words')) || [];
 
 deleteButton.addEventListener('click', () => {
     const deleteWord = document.getElementById('deleteWordInput').value;
 
-    const index = words.findIndex(item => item.word.toLowerCase() === deleteWord.toLowerCase());
+    const index = words2.findIndex(item => item.word.toLowerCase() === deleteWord.toLowerCase());
 
     if (index !== -1) {
-        words.splice(index, 1); // 刪除字詞
-        localStorage.setItem('words', JSON.stringify(words)); // 更新 localStorage
+        words2.splice(index, 1); // 刪除字詞
+        localStorage.setItem('words', JSON.stringify(words2)); // 更新 localStorage
         deleteMessage.textContent = `字詞 "${deleteWord}" 已成功刪除！`;
         clearInput();
     } else {

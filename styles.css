@@ -35,7 +35,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-bottom: 10px; /* 增加按鈕之間的垂直空隙 */
+    margin-bottom: 20px; /* 增加按鈕之間的垂直空隙 */
 }
 
 button:hover {
@@ -83,6 +83,7 @@ button:hover {
     margin-top: 20px;
 }
 
+
 .pagination button {
     margin: 0 5px;
     padding: 10px;
@@ -99,4 +100,98 @@ button:hover {
 .pagination button:disabled {
     background-color: #ccc; /* 禁用狀態顏色 */
     cursor: not-allowed;
+}
+.navbar {
+    background-color: #333; /* 導覽列背景顏色 */
+    display: flex; /* 使用 Flexbox */
+    justify-content: space-between; /* 項目之間的間隔 */
+    align-items: center; /* 垂直置中 */
+    padding: 10px 20px; /* 內邊距 */
+    margin-bottom : 20px;
+}
+
+.navbar ul {
+    list-style-type: none; /* 去掉項目符號 */
+    margin: 0;
+    padding: 0;
+    display: flex; /* 使用 Flexbox */
+}
+
+.navbar li {
+    margin: 0 10px; /* 項目之間的間距 */
+}
+
+.navbar a {
+    color: white; /* 字體顏色 */
+    text-align: center; /* 文字置中 */
+    padding: 10px; /* 內邊距 */
+    text-decoration: none; /* 去掉下劃線 */
+}
+
+.navbar a:hover {
+    background-color: #ddd; /* 懸停時的背景顏色 */
+    color: black; /* 懸停時的字體顏色 */
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* 改為垂直排列 */
+        width: 100%; /* 寬度100% */
+        text-align: center; /* 文字置中 */
+    }
+
+    .navbar li {
+        margin: 5px 0; /* 垂直間距 */
+    }
+}
+.navbar a {
+    padding: 14px 16px; /* 增加內邊距 */
+}
+.container h1{
+   font-weight: bold;
+}
+.container .searchbar{
+    margin-bottom: 10px;
+}
+
+  #scoreDisplay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5em;
+        }
+
+#randomWordContainer {
+            display: flex;
+            margin-top: 50px; /* 調整為所需的間距 */
+        }
+        .half {
+            flex: 1; /* 每個子元素佔據一半的寬度 */
+            padding: 10px; /* 添加內邊距 */
+        }
+        #randomWord {
+            background-color: #f8f9fa; /* 對話框背景顏色 */
+            border: 1px solid #ced4da; /* 邊框顏色 */
+            border-radius: 8px; /* 圓角 */
+            padding: 15px; /* 內邊距 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+        }
+        #randomImage {
+            max-width: 100%; /* 保持圖片在容器內 */
+            max-height: 300px; /* 限制圖片最大高度 */
+            height: auto; /* 自動適應高度 */
+        }
+
+#userInput {
+    display: none;
+}
+#nextWordButton {
+    display: none;
+    background-color: green;
+}
+#skipButton {
+    display: none;
+}
+#submitanswerButton {
+    display: none;
 }

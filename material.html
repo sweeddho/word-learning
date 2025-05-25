@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學習資源</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">首頁</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="words.html">查看字詞</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="detailsearch.html">搜尋字詞</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="delete.html">刪除字詞</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="training.html">字詞訓練</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="material.html">外部資源</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container mt-3">
+        <form id="searchForm" class="d-flex">
+        <input class="form-control me-2" type="search" id="searchInput" placeholder="輸入搜尋條件" aria-label="Search">
+        <button class="btn btn-outline-success" type="button" id="searchSubmitButton">搜尋</button>
+    </form>
+        <h1>有助於學習英文生字的網站</h1>
+        
+        <div class="accordion" id="learningResources">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Memrise
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#learningResources">
+                    <div class="accordion-body">
+                        <a href="https://www.memrise.com" target="_blank">訪問 Memrise</a> - 一個有趣的記憶學習平台。
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Duolingo
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#learningResources">
+                    <div class="accordion-body">
+                        <a href="https://www.duolingo.com" target="_blank">訪問 Duolingo</a> - 提供多種語言的學習課程。
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Vocabulary.com
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#learningResources">
+                    <div class="accordion-body">
+                        <a href="https://www.vocabulary.com" target="_blank">訪問 Vocabulary.com</a> - 幫助擴充詞彙的網站。
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Quizlet
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#learningResources">
+                    <div class="accordion-body">
+                        <a href="https://www.quizlet.com" target="_blank">訪問 Quizlet</a> - 提供學習工具和資源的網站。
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        English Club
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#learningResources">
+                    <div class="accordion-body">
+                        <a href="https://www.englishclub.com" target="_blank">訪問 English Club</a> - 各種英語學習資源的集合。
+                    </div>
+                </div>
+            </div>
+             <div class="accordion-item">
+                <h2 class="accordion-header" id="headingsix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                        Cambridge dictionary
+                    </button>
+                </h2>
+                <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingsix" data-bs-parent="#learningResources">
+                    <div class="accordion-body">
+                        <a href="https://www.englishclub.com" target="_blank">訪問 Cambridge dictionary</a> - 英語單字字典。
+                    </div>
+                </div>
+            </div>
+             <div class="accordion-item">
+                <h2 class="accordion-header" id="headingsix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                        BBC learning english
+                    </button>
+                </h2>
+                <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingsix" data-bs-parent="#learningResources">
+                    <div class="accordion-body">
+                        <a href="https://www.bbc.co.uk/learningenglish/" target="_blank">訪問 BBC learning english</a> - 英語聆聽練習。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+    </div>
+     <script src="search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

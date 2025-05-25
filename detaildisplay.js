@@ -2,11 +2,11 @@ const detailDisplay = document.getElementById('detailDisplay');
 const similarWordsDisplay = document.getElementById('similarWordsDisplay');
 const backButton = document.getElementById('backButton');
 
-const words = JSON.parse(localStorage.getItem('words')) || [];
+const words3 = JSON.parse(localStorage.getItem('words')) || [];
 const wordToDisplay = localStorage.getItem('detailWord');
 
-if (wordToDisplay) {
-    const wordData = words.find(item => item.word.toLowerCase() === wordToDisplay.toLowerCase());
+    if (wordToDisplay) {
+    const wordData = words3.find(item => item.word.toLowerCase() === wordToDisplay.toLowerCase());
 
     if (wordData) {
         detailDisplay.innerHTML = `
@@ -16,7 +16,7 @@ if (wordToDisplay) {
         `;
 
         // 顯示其他相同字詞的記錄
-        const similarWords = words.filter(item => item.word.toLowerCase() === wordData.word.toLowerCase() && item !== wordData);
+        const similarWords = words3.filter(item => item.word.toLowerCase() === wordData.word.toLowerCase() && item !== wordData);
         
         if (similarWords.length > 0) {
             similarWords.forEach(similar => {

@@ -1,27 +1,29 @@
-const wordList2 = document.getElementById('wordList');
-const wordCount = document.getElementById('wordCount');
+const resultList = document.getElementById('resultList');
+const resultCount = document.getElementById('resultCount'); // 獲取結果數量顯示區域
+const results = JSON.parse(localStorage.getItem('searchResults')) || [];
 const pagination = document.getElementById('pagination');
-const words2 = JSON.parse(localStorage.getItem('words')) || [];
 const itemsPerPage = 10; // 每頁顯示的記錄數
 let currentPage = 1; // 當前頁碼
 
-function displayWords() {
-    wordList2.innerHTML = '';
-    wordCount.textContent = `總共 ${words2.length} 個字詞`;
 
-    const totalPages = Math.ceil(words2.length / itemsPerPage);
+
+function displayResults() {
+    resultList.innerHTML = '';
+    resultCount.textContent = `找到 ${results.length} 個結果`; // 更新結果總數顯示
+
+    const totalPages = Math.ceil(results.length / itemsPerPage);
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
-    const paginatedWords = words2.slice(start, end);
+    const paginatedWords = results.slice(start, end);
 
     if (paginatedWords.length === 0) {
-        wordList2.textContent = '尚未加入任何字詞';
+        resultList.textContent = '無相關結果';
     } else {
         paginatedWords.forEach(item => {
             const div = document.createElement('div');
             div.className = 'word-item';
-            div.innerHTML = `<span class="word-link" data-word="${item.word}">${item.word} (${item.partOfSpeech}):${item.definition}   詳細:(點擊我)</span>`;
-          
+               div.innerHTML = `<span class="word-link" data-word="${item.word}">${item.word} (${item.partOfSpeech}):${item.definition}    詳細:(點擊我)</span>`;
+
             const buttonContainer = document.createElement('div');
             buttonContainer.className = 'button-container';
 
@@ -33,36 +35,34 @@ function displayWords() {
                 window.location.href = 'edit.html';
             });
 
-            const deleteButton = document.createElement('button');
+             const deleteButton = document.createElement('button');
             deleteButton.textContent = '刪除';
             deleteButton.className = 'delete-button';
             deleteButton.addEventListener('click', () => {
                 if (confirm(`確定要刪除字詞 "${item.word}" 嗎？`)) {
-                    words2.splice((currentPage - 1) * itemsPerPage + paginatedWords.indexOf(item), 1);
-                    localStorage.setItem('words', JSON.stringify(words2));
-                    displayWords();
+                    results.splice((currentPage - 1) * itemsPerPage + paginatedWords.indexOf(item), 1);
+                    localStorage.setItem('words', JSON.stringify(results));
+                    displayResults();
                 }
             });
+
+             div.querySelector('.word-link').addEventListener('click', () => {
+                localStorage.setItem('detailWord', item.word);
+                window.location.href = 'detaildisplay.html';
+            });
+       
+
+           
 
             buttonContainer.appendChild(editButton);
             buttonContainer.appendChild(deleteButton);
             div.appendChild(buttonContainer);
-                    
-
-            // 添加點擊事件以保存字詞並導航
-            div.querySelector('.word-link').addEventListener('click', () => {
-                localStorage.setItem('detailWord', item.word);
-                window.location.href = 'detaildisplay.html';
-            });
-
-            buttonContainer.appendChild(editButton);
-            buttonContainer.appendChild(deleteButton); // 添加刪除按鈕
-            div.appendChild(buttonContainer);
-            wordList2.appendChild(div);
+            resultList.appendChild(div);
         });
     }
-    setupPagination(totalPages);
+      setupPagination(totalPages);
 }
+
 
 function setupPagination(totalPages) {
     pagination.innerHTML = '';
@@ -73,7 +73,7 @@ function setupPagination(totalPages) {
     prevButton.addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage--;
-            displayWords();
+            displayResults();
         }
     });
     pagination.appendChild(prevButton);
@@ -84,7 +84,7 @@ function setupPagination(totalPages) {
         pageButton.className = currentPage === i ? 'active' : '';
         pageButton.addEventListener('click', () => {
             currentPage = i;
-            displayWords();
+            displayResults();
         });
         pagination.appendChild(pageButton);
     }
@@ -95,14 +95,16 @@ function setupPagination(totalPages) {
     nextButton.addEventListener('click', () => {
         if (currentPage < totalPages) {
             currentPage++;
-            displayWords();
+            displayResults();
         }
     });
     pagination.appendChild(nextButton);
 }
 
-document.getElementById('backButton').addEventListener('click', () => {
-    window.location.href = 'index.html';
+
+
+document.getElementById('backTodetailsearchButton').addEventListener('click', () => {
+    window.location.href = 'detailsearch.html';
 });
 
-displayWords();
+displayResults();

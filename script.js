@@ -1,5 +1,5 @@
 // 導航按鈕事件處理
-document.getElementById('editButton').addEventListener('click', () => {
+/*document.getElementById('editButton').addEventListener('click', () => {
     window.location.href = 'edit.html';
 });
 
@@ -13,7 +13,7 @@ document.getElementById('viewAllButton').addEventListener('click', () => {
 
 document.getElementById('deleteButton').addEventListener('click', () => {
     window.location.href = 'delete.html';
-});
+});*/
 
 // 新增字詞的邏輯
 document.getElementById('submitButton').addEventListener('click', () => {
@@ -34,3 +34,22 @@ document.getElementById('submitButton').addEventListener('click', () => {
         document.getElementById('message').textContent = '請填寫所有欄位！';
     }
 });
+ function displayRandomWord() {
+            const words = JSON.parse(localStorage.getItem('words')) || [];
+            const randomWordDiv = document.getElementById('randomWord');
+
+            randomWordDiv.addEventListener('click', function() {
+                if (words.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * words.length);
+                    const randomWord = words[randomIndex]; // 假設每個字詞物件中有 `word` 屬性
+                    randomWordDiv.textContent = `${randomWord.word}這個字意思是${randomWord.definition}.\r\n 記住了嗎?`;
+                } else {
+                    randomWordDiv.textContent = '你還沒有加入任何字哦,先用上面的介面加入字吧.';
+                }
+            });
+        }
+
+        // 頁面加載時初始化
+        window.onload = displayRandomWord;
+
+
