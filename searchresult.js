@@ -23,7 +23,7 @@ function displayResults() {
             const div = document.createElement('div');
             div.className = 'word-item';
              div.innerHTML = `<span class="word-link" data-word="${item.word}">${item.word} (${item.partOfSpeech}):${item.definition}   詳細:(點擊我)</span>`;
-            //div.textContent = `${item.word} (${item.partOfSpeech}): ${item.definition}`;
+        
 
             const buttonContainer = document.createElement('div');
             buttonContainer.className = 'button-container';

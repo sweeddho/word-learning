@@ -1,19 +1,4 @@
-// 導航按鈕事件處理
-/*document.getElementById('editButton').addEventListener('click', () => {
-    window.location.href = 'edit.html';
-});
 
-document.getElementById('searchButton').addEventListener('click', () => {
-    window.location.href = 'search.html';
-});
-
-document.getElementById('viewAllButton').addEventListener('click', () => {
-    window.location.href = 'words.html';
-});
-
-document.getElementById('deleteButton').addEventListener('click', () => {
-    window.location.href = 'delete.html';
-});*/
 
 // 新增字詞的邏輯
 document.getElementById('submitButton').addEventListener('click', () => {

@@ -15,6 +15,3 @@ searchSubmitButton.addEventListener('click', () => {
     window.location.href = 'searchresult.html'; // 導向搜尋結果頁面
 });
 
-/*document.getElementById('backButton').addEventListener('click', () => {
-    window.location.href = 'index.html';
-});*/

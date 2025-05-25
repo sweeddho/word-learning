@@ -18,7 +18,7 @@ searchSubmitButton.addEventListener('click', () => {
         const results = words.filter(item =>
         item.word.toLowerCase() === searchTerm &&
         item.partOfSpeech.toLowerCase() === searchpos &&
-        //item.definition.toLowerCase().localeCompare(searchexplain)
+       
         item.definition.toLowerCase() === searchexplain
         
        

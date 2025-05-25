@@ -32,7 +32,7 @@ function displayWord() {
          document.getElementById('startButton').style.display = 'none'; 
     }
     document.getElementById('userInput').value = '';
-    //document.getElementById('feedback').textContent = '';   
+      
 }
 
 function updateScore() {
@@ -74,7 +74,3 @@ document.getElementById('skipButton').addEventListener('click', () => {
     }
 });
 
-// 初始化顯示隨機字詞
-//displayWord();
-
-//window.onload = displayWord();
