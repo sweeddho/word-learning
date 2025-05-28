@@ -1,7 +1,7 @@
 let randomWord ='';
-
+  const words = JSON.parse(localStorage.getItem('words')) || [];
 function getRandomWord() {
-    const words = JSON.parse(localStorage.getItem('words')) || [];
+   // const words = JSON.parse(localStorage.getItem('words')) || [];
     if (words.length === 0) return null;
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex]; // 假設每個字詞物件中有 `word` 屬性
@@ -29,9 +29,10 @@ document.getElementById('submitButton').addEventListener('click', () => {
  function displayRandomWord() {
             
             const randomWordDiv = document.getElementById('randomWord');
-            randomWord = getRandomWord();
-            randomWordDiv.addEventListener('click', function() {
-                if (randomWord) {
+           
+            randomWordDiv.addEventListener('click', ()=>{
+                if (words.length>0) {
+                     randomWord = getRandomWord();
                     //const randomIndex = Math.floor(Math.random() * words.length);
                   //  const randomWord = words[randomIndex]; // 假設每個字詞物件中有 `word` 屬性
                     randomWordDiv.textContent = `${randomWord.word}這個字意思是${randomWord.definition}.\r\n 記住了嗎?`;
@@ -39,7 +40,7 @@ document.getElementById('submitButton').addEventListener('click', () => {
                 } else {
                     randomWordDiv.textContent = '你還沒有加入任何字哦,先用上面的介面加入字吧.';
                 }
-            });
+ });
            
         }
 
