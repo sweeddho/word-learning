@@ -1,4 +1,11 @@
+let randomWord ='';
 
+function getRandomWord() {
+    const words = JSON.parse(localStorage.getItem('words')) || [];
+    if (words.length === 0) return null;
+    const randomIndex = Math.floor(Math.random() * words.length);
+    return words[randomIndex]; // 假設每個字詞物件中有 `word` 屬性
+}
 
 // 新增字詞的邏輯
 document.getElementById('submitButton').addEventListener('click', () => {
@@ -20,21 +27,27 @@ document.getElementById('submitButton').addEventListener('click', () => {
     }
 });
  function displayRandomWord() {
-            const words = JSON.parse(localStorage.getItem('words')) || [];
+            
             const randomWordDiv = document.getElementById('randomWord');
-
+            randomWord = getRandomWord();
             randomWordDiv.addEventListener('click', function() {
-                if (words.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * words.length);
-                    const randomWord = words[randomIndex]; // 假設每個字詞物件中有 `word` 屬性
+                if (randomWord) {
+                    //const randomIndex = Math.floor(Math.random() * words.length);
+                  //  const randomWord = words[randomIndex]; // 假設每個字詞物件中有 `word` 屬性
                     randomWordDiv.textContent = `${randomWord.word}這個字意思是${randomWord.definition}.\r\n 記住了嗎?`;
+                      document.getElementById('playButton').style.display = 'block';
                 } else {
                     randomWordDiv.textContent = '你還沒有加入任何字哦,先用上面的介面加入字吧.';
                 }
             });
+           
         }
 
-        // 頁面加載時初始化
-        window.onload = displayRandomWord;
+ document.getElementById('playButton').addEventListener('click', ()=>{
+
+                responsiveVoice.speak(randomWord.word, "UK English Female");
+
+            });       // 頁面加載時初始化
+window.onload = displayRandomWord;
 
 

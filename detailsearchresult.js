@@ -27,7 +27,7 @@ function displayResults() {
             const buttonContainer = document.createElement('div');
             buttonContainer.className = 'button-container';
 
-            const editButton = document.createElement('button');
+           /* const editButton = document.createElement('button');
             editButton.textContent = '修改';
             editButton.className = 'edit-button';
             editButton.addEventListener('click', () => {
@@ -45,6 +45,43 @@ function displayResults() {
                     displayResults();
                 }
             });
+*/
+             const editButton = document.createElement('img');
+            editButton.src="png-transparent-computer-icons-editing-delete-button-miscellaneous-angle-logo-thumbnail.png";
+            editButton.alt = '修改';
+            editButton.style.cursor = 'pointer'; // 設置鼠標指針
+        editButton.width = 30; // 設置圖片寬度
+        editButton.height = 30; // 設置圖片高度
+           // editButton.className = 'edit-button';
+            editButton.addEventListener('click', () => {
+                localStorage.setItem('editWord', item.word);
+                window.location.href = 'edit.html';
+            });
+
+            const deleteButton = document.createElement('img');
+            deleteButton.alt= '刪除';
+            deleteButton.src = '3334328.png';
+            deleteButton.style.cursor = 'pointer'; // 設置鼠標指針
+            deleteButton.width = 30; // 設置圖片寬度
+            deleteButton.height = 30; // 設置圖片高度
+            deleteButton.addEventListener('click', () => {
+                if (confirm(`確定要刪除字詞 "${item.word}" 嗎？`)) {
+                    words2.splice((currentPage - 1) * itemsPerPage + paginatedWords.indexOf(item), 1);
+                    localStorage.setItem('words', JSON.stringify(words2));
+                    displayWords();
+                }
+            });
+
+             const playButton = document.createElement('img');
+        playButton.src = 'cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L3JtMjEzMC10dS0wMjYtcC5wbmc.webp'; // 替換為您的圖片路徑
+        playButton.alt = '播放';
+        playButton.style.cursor = 'pointer'; // 設置鼠標指針
+        playButton.width = 30; // 設置圖片寬度
+        playButton.height = 30; // 設置圖片高度
+        playButton.onclick = () => {
+            responsiveVoice.speak(item.word, "UK English Female");
+        };
+
 
              div.querySelector('.word-link').addEventListener('click', () => {
                 localStorage.setItem('detailWord', item.word);
@@ -56,6 +93,7 @@ function displayResults() {
 
             buttonContainer.appendChild(editButton);
             buttonContainer.appendChild(deleteButton);
+              buttonContainer.appendChild(playButton);
             div.appendChild(buttonContainer);
             resultList.appendChild(div);
         });

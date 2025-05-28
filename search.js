@@ -1,10 +1,10 @@
 const searchSubmitButton = document.getElementById('searchSubmitButton');
 const wordList = document.getElementById('wordList');
-const words = JSON.parse(localStorage.getItem('words')) || [];
+const wordsforsearch = JSON.parse(localStorage.getItem('words')) || [];
 
 searchSubmitButton.addEventListener('click', () => {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const results = words.filter(item =>
+    const results = wordsforsearch.filter(item =>
         item.word.toLowerCase().includes(searchTerm) ||
         item.partOfSpeech.toLowerCase().includes(searchTerm) ||
         item.definition.toLowerCase().includes(searchTerm)
