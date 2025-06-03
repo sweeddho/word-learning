@@ -60,6 +60,7 @@ document.getElementById('submitanswerButton').addEventListener('click', () => {
 document.getElementById('nextWordButton').addEventListener('click', selectWordsound);
 
 document.getElementById('skipButton').addEventListener('click', () => {
+    alert('讀的字是這個哦:'+currentWord.word);
     skipCount++; // 跳過次數 +1
     if (skipCount === 3) {
         const confirmSkip = confirm("您確定要跳過三次嗎？這將重設您的分數。");
