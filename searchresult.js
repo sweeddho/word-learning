@@ -55,7 +55,7 @@ function displayResults() {
         editButton.height = 30; // 設置圖片高度
            // editButton.className = 'edit-button';
             editButton.addEventListener('click', () => {
-                localStorage.setItem('editWord', item.word);
+                localStorage.setItem('editWord', JSON.stringify(item));
                 window.location.href = 'edit.html';
             });
 

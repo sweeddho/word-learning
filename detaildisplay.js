@@ -10,10 +10,9 @@ const wordToDisplay = localStorage.getItem('detailWord');
 
     if (wordData) {
         detailDisplay.innerHTML = `
-            <p><strong>字詞:</strong> ${wordData.word}</p>
-            <p><strong>詞性:</strong> ${wordData.partOfSpeech}</p>
-            <p><strong>解釋:</strong> ${wordData.definition}</p>
-        `;
+            <p><h1><strong>${wordData.word}</strong>(${wordData.partOfSpeech})</h1></p>`;
+        const playaudio =document.createElement('p');
+        playaudio.innerHTML=`<strong>讀音:</strong>`;
          const playButton = document.createElement('img');
         playButton.src = 'cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L3JtMjEzMC10dS0wMjYtcC5wbmc.webp'; // 替換為您的圖片路徑
         playButton.alt = '播放';
@@ -23,7 +22,14 @@ const wordToDisplay = localStorage.getItem('detailWord');
         playButton.onclick = () => {
             responsiveVoice.speak(wordData.word, "UK English Female");
         };
-        detailDisplay.appendChild(playButton);
+        
+        
+        detailDisplay.innerHTML += `<p><h2><strong>${wordData.definition}</strong><h2><p>
+                                    <p><h3>詳解:${wordData.detaildefinition}<h2><p>
+                                    <p><h3>例句:${wordData.example}<h2><p>
+        `;
+        playaudio.appendChild(playButton);
+        detailDisplay.appendChild(playaudio);
         // 顯示其他相同字詞的記錄
         const similarWords = words3.filter(item => item.word.toLowerCase() === wordData.word.toLowerCase() && item !== wordData);
         
@@ -31,7 +37,7 @@ const wordToDisplay = localStorage.getItem('detailWord');
             similarWords.forEach(similar => {
                 const div = document.createElement('div');
                 div.innerHTML = `
-                    <p><strong>字詞:</strong> ${similar.word} (${similar.partOfSpeech}): ${similar.definition}</p>
+                    ${similar.word} (${similar.partOfSpeech}): ${similar.definition}</p>
                 `;
                 similarWordsDisplay.appendChild(div);
             });
@@ -49,3 +55,8 @@ const wordToDisplay = localStorage.getItem('detailWord');
 backButton.addEventListener('click', () => {
     window.location.href = 'words.html';
 });
+
+
+
+
+          

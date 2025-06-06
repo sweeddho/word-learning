@@ -48,8 +48,10 @@
         <button class="btn btn-outline-success" type="button" id="searchSubmitButton">搜尋</button>
     </form>
         <h1>修改字詞</h1>
-        <input type="text" id="editWordInput" placeholder="輸入要修改的字詞" required>
+       <!----<input type="text" id="editWordInput" placeholder="輸入要修改的字詞" required>-->
+       <label for="newWordInput">新的字詞:</label>
         <input type="text" id="newWordInput" placeholder="新的字詞" required>
+        <label for="newPartOfSpeechInput">新的詞性:</label>
         <select id="newPartOfSpeechInput">
             <option value="">選擇新的詞性</option>
             <option value="noun">名詞 (noun)</option>
@@ -60,7 +62,12 @@
             <option value="idiom">成語 (idiom)</option>
             <option value="other">其他 (other)</option>
         </select>
-        <input type="text" id="newDefinitionInput" placeholder="新的中文解釋" required>
+        <label for="newDefinitionInput">新的中文解釋:</label>
+        <input type="text" id="newDefinitionInput" required>
+        <label for="newdetailDefinitionInput">新的詳解:</label>
+        <input type="text" id="newdetailDefinitionInput" placeholder="選填" >
+        <label for="newexampleInput">新的例句:</label>
+        <input type="text" id="newexampleInput" placeholder="選填">
         <button id="editSubmitButton">修改</button>
         <div id="editMessage"></div>
         <button id="backButton">返回主頁</button>
