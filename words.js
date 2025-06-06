@@ -69,7 +69,7 @@ function displayWords() {
 
             // 添加點擊事件以保存字詞並導航
             div.querySelector('.word-link').addEventListener('click', () => {
-                localStorage.setItem('detailWord', item.word);
+                localStorage.setItem('detailWord', JSON.stringify(item));
                 window.location.href = 'detaildisplay.html';
             });
 

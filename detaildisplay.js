@@ -3,10 +3,14 @@ const similarWordsDisplay = document.getElementById('similarWordsDisplay');
 const backButton = document.getElementById('backButton');
 
 const words3 = JSON.parse(localStorage.getItem('words')) || [];
-const wordToDisplay = localStorage.getItem('detailWord');
+const wordToDisplay = JSON.parse(localStorage.getItem('detailWord'))|| [];
 
     if (wordToDisplay) {
-    const wordData = words3.find(item => item.word.toLowerCase() === wordToDisplay.toLowerCase());
+    const wordData = words3.find(item =>  item.word.toLowerCase() === wordToDisplay.word.toLowerCase() &&
+                                            item.partOfSpeech.toLowerCase()=== wordToDisplay.partOfSpeech.toLowerCase()&&
+                                            item.definition.toLowerCase() === wordToDisplay.definition.toLowerCase()
+
+);
 
     if (wordData) {
         detailDisplay.innerHTML = `
@@ -23,11 +27,11 @@ const wordToDisplay = localStorage.getItem('detailWord');
             responsiveVoice.speak(wordData.word, "UK English Female");
         };
         detailDisplay.innerHTML += `<p><h2><strong>${wordData.definition}</strong><h2><p>`;
-        if(wordData.detaildefinition == null){detailDisplay.innerHTML+=`<p><h3>詳解:暫沒<h3><p>`;}
+        if(wordData.detaildefinition.length == 0){detailDisplay.innerHTML+=`<p><h3>詳解:暫沒<h3><p>`;}
         else{ detailDisplay.innerHTML+= `<p><h3>詳解:${wordData.detaildefinition}<h3><p></p>`;}
 
-        if(wordData.example == null){detailDisplay.innerHTML+=`<p><h3>例句:暫沒<h3><p>`;}
-        else{ detailDisplay.innerHTML+= `<p><h3>例句:${wordData.detaildefinition}<h3><p></p>`;}
+        if(wordData.example.length == 0 ){detailDisplay.innerHTML+=`<p><h3>例句:暫沒<h3><p>`;}
+        else{ detailDisplay.innerHTML+= `<p><h3>例句:${wordData.example}<h3><p></p>`;}
         /*detailDisplay.innerHTML += `<p><h2><strong>${wordData.definition}</strong><h2><p>
                                     <p><h3>詳解:${wordData.detaildefinition}<h2><p>
                                     <p><h3>例句:${wordData.example}<h2><p>

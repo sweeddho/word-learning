@@ -8,10 +8,10 @@ let newexampleInput = document.getElementById('newexampleInput');
 let newPartOfSpeech = document.getElementById('newPartOfSpeechInput');
 let newDefinition = document.getElementById('newDefinitionInput');
 // 預填字詞
-const editWord =JSON.parse(localStorage.getItem('editWord'));
+const editWord =JSON.parse(localStorage.getItem('editWord'))|| [];
 
 
-console.log(editWord);
+console.log(editWord.example);
 
 if (editWord) {
     newWordInput.value = editWord.word;
