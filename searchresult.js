@@ -84,7 +84,7 @@ function displayResults() {
         };
        
              div.querySelector('.word-link').addEventListener('click', () => {
-                localStorage.setItem('detailWord', item.word);
+                localStorage.setItem('detailWord', JSON.stringify(item));
                 window.location.href = 'detaildisplay.html';
             });
            
