@@ -61,6 +61,8 @@ document.getElementById('submitanswerButton').addEventListener('click', () => {
                 `;
             
         });
+
+    if(sameword.length!=0){
     for(var i=0;i<sameword.length;i++){
      if (userInput === currentWord.definition || userInput === sameword[i].definition) {
         score++; // 分數 +1
@@ -72,8 +74,23 @@ document.getElementById('submitanswerButton').addEventListener('click', () => {
          document.getElementById('nextWordButton').style.display = 'block'; 
           document.getElementById('skipButton').style.display = 'none'; 
           correct = 1;
+          break;
     } 
     };
+    
+    }
+    else{
+        if(userInput === currentWord.definition){  
+            
+        score++; // 分數 +1
+        feedback.innerHTML = `<span class="correctness">正確！</span>`+`${currentWord.word}的意思包括:`;
+        feedback.appendChild(div);
+        document.querySelector('.correctness').style.color = 'green';
+        updateScore();
+         document.getElementById('nextWordButton').style.display = 'block'; 
+          document.getElementById('skipButton').style.display = 'none'; 
+          correct = 1;}
+    }
     /*if (userInput === currentWord.definition && correct == 0) {
         score++; // 分數 +1
          const div = document.createElement('div');

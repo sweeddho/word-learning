@@ -36,18 +36,43 @@ const wordToDisplay = JSON.parse(localStorage.getItem('detailWord'))|| [];
                                     <p><h3>詳解:${wordData.detaildefinition}<h2><p>
                                     <p><h3>例句:${wordData.example}<h2><p>
         `;*/
+
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container';
+        const editButton = document.createElement('img');
+        editButton.src="png-transparent-computer-icons-editing-delete-button-miscellaneous-angle-logo-thumbnail.png";
+        editButton.alt = '修改';
+        editButton.style.cursor = 'pointer'; // 設置鼠標指針
+        editButton.width = 30; // 設置圖片寬度
+        editButton.height = 30; // 設置圖片高度
+           // editButton.className = 'edit-button';
+            editButton.addEventListener('click', () => {
+                localStorage.setItem('editWord', JSON.stringify(wordData));
+              
+                window.location.href = 'edit.html';
+            });
+
+         
         playaudio.appendChild(playButton);
+        buttonContainer.appendChild(editButton);
         detailDisplay.appendChild(playaudio);
+        detailDisplay.appendChild(buttonContainer);
         // 顯示其他相同字詞的記錄
         const similarWords = words3.filter(item => item.word.toLowerCase() === wordData.word.toLowerCase() && item !== wordData);
         
         if (similarWords.length > 0) {
             similarWords.forEach(similar => {
-                const div = document.createElement('div');
-                div.innerHTML = `
+                const link = document.createElement('a');
+                link.href='#';
+                link.innerHTML = `
                     ${similar.word} (${similar.partOfSpeech}): ${similar.definition}</p>
                 `;
-                similarWordsDisplay.appendChild(div);
+                link.addEventListener('click',()=>{
+                    localStorage.setItem('detailWord',JSON.stringify(similar));
+                    window.location.href='detaildisplay.html';
+                });
+                similarWordsDisplay.appendChild(link);
             });
         } else {
             similarWordsDisplay.textContent = '沒有其他相同字詞的記錄。';
