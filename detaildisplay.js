@@ -86,7 +86,7 @@ const wordToDisplay = JSON.parse(localStorage.getItem('detailWord'))|| [];
 
 
 backButton.addEventListener('click', () => {
-    window.location.href = 'words.html';
+    window.location.href = 'index.html';
 });
 
 

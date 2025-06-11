@@ -17,7 +17,7 @@ function displayWord() {
   
   currentWord = getRandomWord();
     sameword = words.filter(item =>
-        item.word.toLowerCase() === currentWord.word &&
+        item.word.toLowerCase() === currentWord.word.toLowerCase() &&
         item.definition.toLowerCase() != currentWord.definition
         
     );

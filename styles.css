@@ -201,3 +201,7 @@ button:hover {
     display: none;
     
 }
+#detailButton {
+    display: none;
+    background-color: #218838;
+}
