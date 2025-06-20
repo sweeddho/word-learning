@@ -4,7 +4,10 @@ const backButton = document.getElementById('backButton');
 
 const words3 = JSON.parse(localStorage.getItem('words')) || [];
 const wordToDisplay = JSON.parse(localStorage.getItem('detailWord'))|| [];
-
+console.log(wordToDisplay.word);
+console.log(wordToDisplay.partOfSpeech);
+console.log(wordToDisplay.definition);
+console.log(wordToDisplay);
     if (wordToDisplay) {
     const wordData = words3.find(item =>  item.word.toLowerCase() === wordToDisplay.word.toLowerCase() &&
                                             item.partOfSpeech.toLowerCase()=== wordToDisplay.partOfSpeech.toLowerCase()&&

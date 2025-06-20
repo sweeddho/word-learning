@@ -1,14 +1,6 @@
-let randomWord ='';
-  const words = JSON.parse(localStorage.getItem('words')) || [];
-function getRandomWord() {
-   // const words = JSON.parse(localStorage.getItem('words')) || [];
-    if (words.length === 0) return null;
-    const randomIndex = Math.floor(Math.random() * words.length);
-    return words[randomIndex]; // 假設每個字詞物件中有 `word` 屬性
-}
 
 // 新增字詞的邏輯
-/*document.getElementById('submitButton').addEventListener('click', () => {
+document.getElementById('submitButton').addEventListener('click', () => {
     const word = document.getElementById('wordInput').value;
     const partOfSpeech = document.getElementById('partOfSpeechInput').value;
     const definition = document.getElementById('definitionInput').value;
@@ -29,8 +21,29 @@ function getRandomWord() {
     } else {
         document.getElementById('message').textContent = '請填寫所有欄位！';
     }
-});*/
- function displayRandomWord() {
+});
+
+
+function begin(){
+    document.getElementById('wordInput').focus();
+};
+document.getElementById('wordInput').addEventListener('keydown',(event)=>{
+    if(event.key ==="Enter"){
+        document.getElementById('partOfSpeechInput').focus();
+    };
+});
+document.getElementById('partOfSpeechInput').addEventListener('keydown',(event)=>{
+    if(event.key ==="Enter"){
+        document.getElementById('definitionInput').focus();
+    };
+});
+document.getElementById('partOfSpeechInput').addEventListener('keydown',(event)=>{
+    if(event.key ==="Enter"){
+        document.getElementById('definitionInput').focus();
+    };
+});
+window.onload = begin;
+ /*function displayRandomWord() {
             
             const randomWordDiv = document.getElementById('randomWord');
            
@@ -62,10 +75,4 @@ function getRandomWord() {
 
             });       
             // 頁面加載時初始化
-
-document.getElementById('insertButton').addEventListener('click',()=>{
-  window.location.href='insert.html';
-});
-window.onload = displayRandomWord;
-
-
+window.onload = displayRandomWord;*/

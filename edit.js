@@ -42,8 +42,10 @@ editSubmitButton.addEventListener('click', () => {
         // 使用新的字詞替換原有字詞
         words[index] = { word: newWord || editWord, partOfSpeech: newPartOfSpeech, definition: newDefinition , example:  newexampleInput,detaildefinition:newdetailDefinitionInput  };
         localStorage.setItem('words', JSON.stringify(words)); // 儲存修改後的字詞
-        editMessage.textContent = '字詞已成功修改！';
-        clearInputs();
+        if(confirm('字詞已成功修改！回到首頁')){
+            window.location.href ='index.html';
+        };
+        //clearInputs();
     } else {
         editMessage.textContent = '未找到該字詞！';
     }
