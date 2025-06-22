@@ -205,6 +205,10 @@ button:hover {
     display: none;
     background-color: #218838;
 }
+#backbutton {
+    display: none;
+    background-color: #218838;
+}
 
 .footer{
     background-color: #f0f0f0;
@@ -212,3 +216,56 @@ button:hover {
             text-align: center;
             flex: 0 0 20%;  /* 高度佔 20% */
 }
+#insertButton{
+    border-radius: 8px; /* 圓角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+    background-color: #28a745;
+}
+
+
+#calenderbutton{
+    border-radius: 8px;
+    max-width: 100%; /* 保持圖片在容器內 */
+            max-height: 300px; /* 限制圖片最大高度 */
+            height: auto; /* 自動適應高度 */
+}
+ .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 20px;
+        }
+        .day {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+            position: relative;
+            cursor: pointer;
+        }
+        .day.has-words {
+            background-color: red; /* 有字詞的日子 */
+        }
+        .count {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #ffcc00; /* 總數顏色 */
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 12px;
+            color: white;
+        }
+        .month-selector {
+            margin-bottom: 20px;
+            text-align: center;
+            display :block;
+        }
+        .add-word-form {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #eachdayword{
+            display:none;
+        }

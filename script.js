@@ -6,7 +6,7 @@ function getRandomWord() {
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex]; // 假設每個字詞物件中有 `word` 屬性
 }
-
+console.log(words);
 // 新增字詞的邏輯
 /*document.getElementById('submitButton').addEventListener('click', () => {
     const word = document.getElementById('wordInput').value;
@@ -65,6 +65,9 @@ function getRandomWord() {
 
 document.getElementById('insertButton').addEventListener('click',()=>{
   window.location.href='insert.html';
+});
+document.getElementById('calenderbutton').addEventListener('click',()=>{
+  window.location.href='calender.html';
 });
 window.onload = displayRandomWord;
 
