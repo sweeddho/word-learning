@@ -269,3 +269,31 @@ button:hover {
         #eachdayword{
             display:none;
         }
+
+
+
+
+#pagination-calender {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+#pagination-calender button {
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#pagination-calender button.active {
+    background-color: #007bff; /* 藍色 */
+    color: white;
+}
+
+#pagination-calender button:disabled {
+    background-color: #ccc; /* 禁用狀態顏色 */
+    cursor: not-allowed;
+}

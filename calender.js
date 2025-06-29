@@ -6,6 +6,10 @@ const wordsData = JSON.parse(localStorage.getItem('words')) || [];
         let wordListElement = [];
        const wordsElement = document.getElementById('eachdayword');
         const dateselector = document.getElementById('dateselector');
+        const itemsPerPage = 10; // 每頁顯示的記錄數
+        let currentPage = 1;
+        const pagination = document.getElementById('pagination-calender');
+
         function populateSelectors() {
             const today = new Date();
             const currentYear = today.getFullYear();
@@ -113,6 +117,9 @@ const wordsData = JSON.parse(localStorage.getItem('words')) || [];
         function showWords(dateStr) {
             // 清空字詞列表
             
+             
+            
+
             calendarElement.innerHTML = '';
             dateselector.style.display ='none';
             for(let i=0;i<wordsData.length;i++){
@@ -121,6 +128,10 @@ const wordsData = JSON.parse(localStorage.getItem('words')) || [];
                 };
             }
             //const words = wordsData[dateStr]?.words || [];
+            const totalPages = Math.ceil(wordListElement.length / itemsPerPage);
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedWords = wordListElement.slice(start, end);
 
             // 顯示字詞
             wordListElement.forEach(word => {
@@ -140,7 +151,7 @@ const wordsData = JSON.parse(localStorage.getItem('words')) || [];
         editButton.height = 30; // 設置圖片高度
            // editButton.className = 'edit-button';
             editButton.addEventListener('click', () => {
-                localStorage.setItem('editWord', JSON.stringify(item));
+                localStorage.setItem('editWord', JSON.stringify(word));
               
                 window.location.href = 'edit.html';
             });
@@ -152,10 +163,10 @@ const wordsData = JSON.parse(localStorage.getItem('words')) || [];
             deleteButton.width = 30; // 設置圖片寬度
             deleteButton.height = 30; // 設置圖片高度
             deleteButton.addEventListener('click', () => {
-                if (confirm(`確定要刪除字詞 "${item.word}" 嗎？`)) {
-                    words2.splice((currentPage - 1) * itemsPerPage + paginatedWords.indexOf(item), 1);
-                    localStorage.setItem('words', JSON.stringify(words2));
-                    displayWords();
+                if (confirm(`確定要刪除字詞 "${word.word}" 嗎？`)) {
+                    wordsData.splice((currentPage - 1) * itemsPerPage + paginatedWords.indexOf(word), 1);
+                    localStorage.setItem('words', JSON.stringify(wordsData));
+                    showWords();
                 }
             });
 
@@ -166,7 +177,7 @@ const wordsData = JSON.parse(localStorage.getItem('words')) || [];
         playButton.width = 30; // 設置圖片寬度
         playButton.height = 30; // 設置圖片高度
         playButton.onclick = () => {
-            responsiveVoice.speak(item.word, "UK English Female");
+            responsiveVoice.speak(word.word, "UK English Female");
         };
 
            /* buttonContainer.appendChild(editButton);
@@ -192,12 +203,49 @@ const wordsData = JSON.parse(localStorage.getItem('words')) || [];
 
             // 顯示字詞列表
             wordsElement.style.display = 'block';
-            
+            setupPagination(totalPages);
         }
 
         function closeWordList() {
             wordsElement.style.display = 'none'; // 隱藏字詞列表
         }
+
+function setupPagination(totalPages) {
+    pagination.innerHTML = '';
+
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '上一頁';
+    prevButton.disabled = currentPage === 1;
+    prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            showWords();
+        }
+    });
+    pagination.appendChild(prevButton);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.className = currentPage === i ? 'active' : '';
+        pageButton.addEventListener('click', () => {
+            currentPage = i;
+            showWords();
+        });
+        pagination.appendChild(pageButton);
+    }
+
+    const nextButton = document.createElement('button');
+    nextButton.textContent = '下一頁';
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            showWords();
+        }
+    });
+    pagination.appendChild(nextButton);
+}
 
         // 初始化
         populateSelectors();

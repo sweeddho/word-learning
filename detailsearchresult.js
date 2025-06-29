@@ -4,7 +4,7 @@ const results = JSON.parse(localStorage.getItem('searchResults')) || [];
 const pagination = document.getElementById('pagination');
 const itemsPerPage = 10; // 每頁顯示的記錄數
 let currentPage = 1; // 當前頁碼
-
+const wordbase = JSON.parse(localStorage.getItem('words')) || [];
 
 
 function displayResults() {
@@ -66,8 +66,8 @@ function displayResults() {
             deleteButton.height = 30; // 設置圖片高度
             deleteButton.addEventListener('click', () => {
                 if (confirm(`確定要刪除字詞 "${item.word}" 嗎？`)) {
-                    words2.splice((currentPage - 1) * itemsPerPage + paginatedWords.indexOf(item), 1);
-                    localStorage.setItem('words', JSON.stringify(words2));
+                    wordbase.splice((currentPage - 1) * itemsPerPage + paginatedWords.indexOf(item), 1);
+                    localStorage.setItem('words', JSON.stringify(wordbase));
                     displayWords();
                 }
             });
